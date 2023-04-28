@@ -1,5 +1,5 @@
-import { postCardProps } from "@/utils/types";
 import { Space, Card, Avatar } from "antd";
+import { postCardProps } from "@/utils/types";
 import { AiOutlineUser } from "react-icons/ai";
 
 const PostCard = ({ user, title, key, onClick }: postCardProps) => {
@@ -24,7 +24,7 @@ const PostCard = ({ user, title, key, onClick }: postCardProps) => {
             more
           </p>
         }
-        className="cursor-pointer w-[80%] mx-auto"
+        className="cursor-pointer w-[80%] mx-auto bg-white"
         onClick={onClick}
       >
         <p className="truncate">{title}</p>

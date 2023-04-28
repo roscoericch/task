@@ -1,6 +1,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import NavLayout from "@/components/Navlayout";
+import dynamic from "next/dynamic";
+
+const NavLayout = dynamic(() => import("@/components/Navlayout"), {
+  ssr: false,
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -10,3 +14,12 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
+
+// export async function getServerSideProps() {
+//   const NavLayout = require("@/components/Navlayout").default;
+//   return {
+//     props: {
+//       NavLayout,
+//     },
+//   };
+// }

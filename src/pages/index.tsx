@@ -1,21 +1,21 @@
 import axios from "axios";
 import ErrorComponents from "@/components/ErrorComponents";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { Inter } from "next/font/google";
 import { homeProps } from "@/utils/types";
 import { Skeleton } from "antd";
+const PostCard = dynamic(() => import("@/components/PostCard"), {
+  loading: () => <Skeleton active />,
+  ssr: false,
+});
+const PostModal = dynamic(() => import("@/components/PostModal"), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
-const PostCard = dynamic(() => import("@/components/PostCard"), {
-  loading: () => <Skeleton active />,
-});
-const PostModal = dynamic(() => import("@/components/PostModal"));
-
 export default function Home({ data, statusCode }: homeProps) {
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [id, setId] = useState<string>("");
   const openModal = (key: string) => {
@@ -68,7 +68,6 @@ export async function getServerSideProps() {
       props: { data: res.data },
     };
   } catch (error: any) {
-    console.log(error);
     return { props: { statusCode: error.status || 500 } };
   }
 }

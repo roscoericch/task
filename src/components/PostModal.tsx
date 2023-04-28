@@ -1,6 +1,6 @@
+import { Modal, Skeleton } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal, Skeleton } from "antd";
 import { postModalProps } from "@/utils/types";
 
 const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {

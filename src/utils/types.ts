@@ -5,6 +5,7 @@ export type navProps = {
 export type homeProps = {
   data: Array<Record<string, string>>;
   statusCode: number;
+  PostCard: JSX.Element;
 };
 
 export type errorComponentProps = {
