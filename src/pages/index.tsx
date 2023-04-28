@@ -28,6 +28,10 @@ export default function Home({ data, statusCode }: homeProps) {
     setId("");
     return;
   };
+  const cancelModal = () => {
+    setOpen(false);
+    return;
+  };
 
   if (statusCode) {
     return <ErrorComponents message={statusCode} />;
@@ -46,7 +50,12 @@ export default function Home({ data, statusCode }: homeProps) {
           />
         ))}
       </div>
-      <PostModal open={open} id={id} handleCancel={closeModal} />
+      <PostModal
+        open={open}
+        id={id}
+        handleCancel={closeModal}
+        cancelModal={cancelModal}
+      />
     </main>
   );
 }

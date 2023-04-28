@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { postModalProps } from "@/utils/types";
 
-const PostModal = ({ id, open, handleCancel }: postModalProps) => {
+const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<Record<string, string>>({});
   useEffect(() => {
@@ -14,7 +14,10 @@ const PostModal = ({ id, open, handleCancel }: postModalProps) => {
         setLoading(false);
       })
       .catch((error) => {
-        handleCancel();
+        if (error.message) {
+          setData({ errorMessage: error?.message });
+          return;
+        } else cancelModal();
       });
   }, [id]);
   if (loading) {
@@ -35,7 +38,11 @@ const PostModal = ({ id, open, handleCancel }: postModalProps) => {
       okType="primary"
       onCancel={handleCancel}
     >
-      {loading ? <Skeleton active /> : <p>{data?.body}</p>}
+      {loading ? (
+        <Skeleton active />
+      ) : (
+        <p>{data?.body || data?.errorMessage}</p>
+      )}
     </Modal>
   );
 };

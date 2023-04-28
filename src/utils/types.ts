@@ -23,4 +23,5 @@ export type postModalProps = {
   id: string;
   open: boolean;
   handleCancel: () => void;
+  cancelModal: () => void;
 };
