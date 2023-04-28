@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { Menu, MenuProps } from "antd";
 import { useState } from "react";
 import { BsPostcard } from "react-icons/bs";

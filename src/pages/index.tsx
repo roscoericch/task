@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Inter } from "next/font/google";
 import { homeProps } from "@/utils/types";
 import { Skeleton } from "antd";
+
 const PostCard = dynamic(() => import("@/components/PostCard"), {
   loading: () => <Skeleton active />,
   ssr: false,
@@ -12,7 +13,6 @@ const PostCard = dynamic(() => import("@/components/PostCard"), {
 const PostModal = dynamic(() => import("@/components/PostModal"), {
   ssr: false,
 });
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data, statusCode }: homeProps) {

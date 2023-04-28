@@ -8,8 +8,10 @@ const NavLayout = dynamic(() => import("@/components/Navlayout"), {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="w-full mx-auto overflow-x-hidden">
-      <NavLayout />
+    <div className="">
+      <div className="sticky top-0 z-[100]">
+        <NavLayout />
+      </div>
       <Component {...pageProps} />
     </div>
   );
