@@ -19,7 +19,6 @@ export default function Home({ data, statusCode }: homeProps) {
   const [open, setOpen] = useState(false);
   const [id, setId] = useState<string>("");
   const openModal = (key: string) => {
-    console.log(key);
     setId(key);
     setOpen(true);
     return;

@@ -20,7 +20,8 @@ const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {
   if (loading) {
     return (
       <Modal title="" open={open} onCancel={handleCancel}>
-        <div>
+        <div className="h-[4rem]">
+          <p>loading</p>
           <Skeleton active />
         </div>
       </Modal>

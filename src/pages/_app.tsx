@@ -14,12 +14,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//   const NavLayout = require("@/components/Navlayout").default;
-//   return {
-//     props: {
-//       NavLayout,
-//     },
-//   };
-// }
