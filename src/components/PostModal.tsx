@@ -14,6 +14,7 @@ const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {
         setLoading(false);
       })
       .catch((error) => {
+        setLoading(false);
         if (error.message) {
           setData({ errorMessage: error?.message });
           return;
