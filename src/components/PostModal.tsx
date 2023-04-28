@@ -20,16 +20,6 @@ const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {
         } else cancelModal();
       });
   }, [id]);
-  if (loading) {
-    return (
-      <Modal title="" open={open} onCancel={handleCancel}>
-        <div className="h-[4rem]">
-          <p>loading</p>
-          <Skeleton active />
-        </div>
-      </Modal>
-    );
-  }
 
   return (
     <Modal
@@ -37,6 +27,7 @@ const PostModal = ({ id, open, handleCancel, cancelModal }: postModalProps) => {
       open={open}
       okType="primary"
       onCancel={handleCancel}
+      centered={true}
     >
       {loading ? (
         <Skeleton active />
